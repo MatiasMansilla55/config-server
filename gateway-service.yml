@@ -15,8 +15,8 @@ spring:
        filters:
          - AddRequestHeader=X-Request-from, gateway
          - AddResponseHeader=X-Response-Red, Blue
-     - id: product-service
-       uri: lb://product-service
+     - id: products-service
+       uri: lb://products-service
        predicates:
           - Path=/products
 server:
