@@ -1,31 +1,32 @@
 spring:
- application:
-   name: gateway-service
- security:
-   oauth2:
-     resourceserver:
-       jwt:
-         issuer-uri: http://localhost:8080/realms/DigitalHouseMoney
+  application:
+    name: gateway-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/DigitalHouseMoney
   
- cloud:
-  config:
-   discovery:
-    serviceId: config-server
-    enabled: true
-  gateway:
-    default-filters:
-      - TokenRelay=
-   routes:
-     - id: checkout-service
-       uri: lb://checkout-service
-       predicates:
-         - Path=/checkout
-       filters:
-         - AddRequestHeader=X-Request-from, gateway
-         - AddResponseHeader=X-Response-Red, Blue
-     - id: products-service
-       uri: lb://products-service
-       predicates:
-          - Path=/products
+  cloud:
+    config:
+      discovery:
+        serviceId: config-server
+        enabled: true
+    gateway:
+      default-filters:
+        - TokenRelay=
+      routes:
+        - id: checkout-service
+          uri: lb://checkout-service
+          predicates:
+            - Path=/checkout
+          filters:
+            - AddRequestHeader=X-Request-from, gateway
+            - AddResponseHeader=X-Response-Red, Blue
+        - id: products-service
+          uri: lb://products-service
+          predicates:
+            - Path=/products
 server:
- port: 8084
+  port: 8084
+
