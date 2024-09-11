@@ -29,4 +29,7 @@ spring:
             - Path=/products
 server:
   port: 8084
-
+management:
+  tracing:
+    sampling:
+      probability: 1.0
