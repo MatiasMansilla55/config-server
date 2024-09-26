@@ -33,7 +33,7 @@ management:
   tracing:
     sampling:
       probability: 1.0
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+# eureka:
+  # client:
+    # serviceUrl:
+      # defaultZone: http://eureka-server:8761/eureka/
