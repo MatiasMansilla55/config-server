@@ -3,9 +3,21 @@ spring:
     name: gateway-service
   security:
     oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://keycloak:8080/realms/dh
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/dh
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: api-gateway-client
+            client-secret: dmEiz0iSHaBdeRA5gZBvyBwmgAAeUrpX
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:9090/login/oauth2/code/keycloak
+            scope: openid, profile, email
+      #resourceserver:
+        #jwt:
+          #issuer-uri: http://keycloak:8080/realms/dh
   
   cloud:
     config:
