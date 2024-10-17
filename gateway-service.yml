@@ -38,7 +38,11 @@ spring:
         - id: product-service
           uri: lb://products-service
           predicates:
-            - Path=/products
+            - Path=/products/**
+        - id: user-register
+          uri: lb://user-register
+          predicates:
+            - Path=/user/**
 server:
   port: 8085
 management:
