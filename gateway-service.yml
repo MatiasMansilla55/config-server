@@ -43,6 +43,10 @@ spring:
           uri: lb://user-register
           predicates:
             - Path=/user/**
+        - id: login
+          uri: lb://login
+          predicates:
+            - Path=/login/**
 server:
   port: 8085
 management:
