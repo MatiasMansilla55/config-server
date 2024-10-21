@@ -40,7 +40,7 @@ spring:
           predicates:
             - Path=/products/**
         - id: user-register
-          uri: lb://user-register
+          uri: http://localhost:8087
           predicates:
             - Path=/user/**
         - id: login
