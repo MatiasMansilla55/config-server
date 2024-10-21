@@ -13,7 +13,7 @@ spring:
             client-id: api-gateway-client
             client-secret: dmEiz0iSHaBdeRA5gZBvyBwmgAAeUrpX
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:9090/login/oauth2/code/keycloak
+            redirect-uri: http://localhost:8085/login/oauth2/code/keycloak
             scope: openid, profile, email
       #resourceserver:
         #jwt:
