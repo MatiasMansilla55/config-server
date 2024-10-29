@@ -45,9 +45,7 @@ spring:
           uri: http://localhost:8088
           predicates:
             - Path=/users/**
-             filters:
-            - StripPrefix=1  # Elimina el prefijo antes de redirigir al user-service
-          secureHeaders: false
+          
         
 server:
   port: 8085
