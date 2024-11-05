@@ -3,20 +3,6 @@ spring:
     enabled: false
   application:
     name: gateway-service
-  security:
-    oauth2:
-      client:
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8080/realms/dh
-        registration:
-          keycloak:
-            provider: keycloak
-            client-id: api-gateway-client
-            client-secret: dmEiz0iSHaBdeRA5gZBvyBwmgAAeUrpX
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8085/login/oauth2/code/keycloak
-            scope: openid, profile, email
   cloud:
     config:
       discovery:
@@ -41,17 +27,8 @@ spring:
           uri: http://localhost:8087
           predicates:
             - Path=/users/**
-        
-          
-        
+
 server:
   port: 8085
-#management:
- # tracing:
-  #  sampling:
-   #   probability: 1.0
-# eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://eureka-server:8761/eureka/
+
 
