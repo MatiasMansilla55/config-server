@@ -1,15 +1,23 @@
 spring:
-  application:
-    name: gateway-service
-  config:
-    import: "optional:configserver:"
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/dh
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: api-gateway-client
+            client-secret: dmEiz0iSHaBdeRA5gZBvyBwmgAAeUrpX
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:9090/login/oauth2/code/keycloak
+            scope: openid, profile, email
+
   cloud:
-    config:
-      uri: http://config-service:8889/
-      discovery:
-        serviceId: config-service
-      enabled: false
     gateway:
+      default-filters:
+        - TokenRelay
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -38,6 +46,19 @@ spring:
           uri: http://accounts-service:8083
           predicates:
             - Path=/accounts/**
+
+    config:
+      uri: http://config-service:8889/
+      discovery:
+        serviceId: config-service
+      enabled: false
+
+  application:
+    name: gateway-service
+
+  config:
+    import: "optional:configserver:"
+
 management:
   endpoints:
     web:
@@ -46,6 +67,7 @@ management:
   info:
     env:
       enabled: true
+
 info:
   app:
     name: Gateway
