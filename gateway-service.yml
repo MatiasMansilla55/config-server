@@ -51,6 +51,7 @@ spring:
       uri: http://config-service:8889/
       discovery:
         serviceId: config-service
+        enabled: true  # Cambiado a true para habilitar Eureka Discovery
       enabled: false
 
   application:
@@ -85,4 +86,5 @@ eureka:
 
 server:
   port: 8085
+
 
