@@ -39,7 +39,7 @@ spring:
             maxAge: 3600
       routes:
         - id: user-service
-          uri: http://user-service:8087
+          uri: lb://user-service
           predicates:
             - Path=/users/**
         - id: accounts-service
@@ -79,9 +79,9 @@ eureka:
     hostname: localhost
     statusPageUrlPath: http://localhost:8085/actuator/info
     healthCheckUrlPath: http://localhost:8085/actuator/info
-  #client:
-    #serviceUrl:
-     # defaultZone: http://eureka-server:8761/eureka/
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
 
 server:
   port: 8085
