@@ -26,8 +26,10 @@ info.app.version=1.0.0
 # Eureka Configuration
 eureka.instance.hostname=localhost
 eureka.instance.statusPageUrlPath=http://localhost:8084/actuator/info
-eureka.instance.healthCheckUrlPath=http://localhost:8084/actuator/health
-eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+eureka.instance.healthCheckUrlPath=http://localhost:8084/actuator/info
+eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
+
+spring.main.allow-bean-definition-overriding=true
 
 # Server Configuration
 server.port=8084
