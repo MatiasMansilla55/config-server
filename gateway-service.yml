@@ -43,7 +43,7 @@ info.app.description=API gateway
 info.app.version=1.0.0
 
 # Eureka Configuration
-eureka.instance.hostname=localhost
+#eureka.instance.hostname=localhost
 eureka.instance.statusPageUrlPath=http://localhost:8085/actuator/info
 eureka.instance.healthCheckUrlPath=http://localhost:8085/actuator/info
 eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
