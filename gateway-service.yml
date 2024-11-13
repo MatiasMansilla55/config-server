@@ -25,7 +25,7 @@ spring.cloud.gateway.routes[1].predicates[0]=Path=/accounts/**
 spring.cloud.config.uri=http://config-service:8889/
 spring.cloud.config.discovery.serviceId=config-service
 spring.cloud.config.discovery.enabled=true
-spring.cloud.config.enabled=false
+spring.cloud.config.enabled=true
 
 # Application Name
 spring.application.name=gateway-service
