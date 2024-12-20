@@ -38,6 +38,20 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/accounts/**
+        - id: api-cards
+          uri: http://localhost:8083
+          predicates:
+            - Path=/accounts/{accountId}/cards/**
+        - id: api-activity
+          uri: http://localhost:9091
+          predicates:
+            - Path=/accounts/{accountId}/activity/**
+        - id: api-transfers
+          uri: http://localhost:9092
+          predicates:
+            - Path=/accounts/{accountId}/transferences/**
+          
+            
             
 management:
   endpoints:
