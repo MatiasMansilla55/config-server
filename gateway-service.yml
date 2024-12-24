@@ -41,15 +41,15 @@ spring:
         - id: api-cards
           uri: http://localhost:8083
           predicates:
-            - Path=/cards/**
+            - Path=/accounts/{accountId}/cards/**
         - id: api-activity
           uri: http://localhost:9091
           predicates:
-            - Path=/accounts/{accountId}activity/**
+            - Path=/accounts/{accountId}/activity/**
         - id: api-transfers
           uri: http://localhost:9092
           predicates:
-            - Path=/transferences/**
+            - Path=/accounts/{accountId}/transferences/**
           
             
             
