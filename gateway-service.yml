@@ -98,6 +98,6 @@ spring:
             client-secret: d06GWG9yBsMePUc3ta8kTUKp5y5fjQK9
             provider: keycloak
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:9090/*
+            redirect-uri: http://localhost:9080/login/oauth2/code/keycloak
 
 
