@@ -29,6 +29,8 @@ spring:
               - Authorization
             allowCredentials: true
             maxAge: 3600
+      default-filters:
+        - TokenRelay
       routes:
         - id: user-service
           uri: http://localhost:8087
@@ -50,9 +52,20 @@ spring:
           uri: http://localhost:9092
           predicates:
             - Path=/accounts/{accountId}/transferences/**
-          
-            
-            
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9080/realms/DigitalHouseMoney
+        registration:
+          gateway-client:
+            client-id: gateway-client
+            client-secret: d06GWG9yBsMePUc3ta8kTUKp5y5fjQK9
+            provider: keycloak
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8085/login/oauth2/code/keycloak
+
 management:
   endpoints:
     web:
@@ -78,26 +91,8 @@ eureka:
 
 server:
   port: 8085
+
 main:
   allow-bean-definition-overriding: true
-
-spring:
-  cloud:
-    gateway:
-      default-filters:
-        - TokenRelay
-  security:
-    oauth2:
-      client:
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:9080/realms/DigitalHouseMoney
-        registration:
-          gateway-client:
-            client-id: gateway-client
-            client-secret: d06GWG9yBsMePUc3ta8kTUKp5y5fjQK9
-            provider: keycloak
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:9080/login/oauth2/code/keycloak
 
 
