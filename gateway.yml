@@ -1,6 +1,6 @@
 spring:
   application:
-    name: gateway-service
+    name: gateway
   config:
     import: "optional:configserver:"
   cloud:
@@ -56,13 +56,13 @@ spring:
     oauth2:
       client:
         provider:
-          gateway-service:
+          gateway:
             issuer-uri: http://localhost:9080/realms/DigitalHouseMoney
         registration:
-          gateway-service:
+          gateway:
             client-id: gateway-client
             client-secret: d06GWG9yBsMePUc3ta8kTUKp5y5fjQK9
-            provider: gateway-service
+            provider: gateway
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8085/login/oauth2/code/keycloak
             scope: openid
@@ -77,7 +77,7 @@ management:
 
 info:
   app:
-    name: Gateway
+    name: gateway
     description: API gateway
     version: 1.0.0
 
