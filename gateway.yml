@@ -57,7 +57,7 @@ spring:
       client:
         provider:
           gateway:
-            issuer-uri: http://localhost:9080/realms/digitalhouse
+            issuer-uri: http://localhost:8080/realms/digitalhouse
         registration:
           gateway:
             client-id: gateway-client
@@ -94,5 +94,15 @@ server:
 
 main:
   allow-bean-definition-overriding: true
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        cloud:
+          gateway: DEBUG
+        security: DEBUG
+
 
 
