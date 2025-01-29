@@ -64,7 +64,7 @@ spring:
             client-secret: n1im7DSDElNahrEoiOMyZlncaSYDqyOF
             provider: gateway
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8085/login/oauth2/code/keycloak
+            redirect-uri: http://localhost:8085/login/oauth2/code/gateway-client
             scope: openid
 management:
   endpoints:
