@@ -29,8 +29,8 @@ spring:
               - Authorization
             allowCredentials: true
             maxAge: 3600
-      #default-filters:
-        #- TokenRelay
+      default-filters:
+        - TokenRelay
       routes:
         - id: user-service
           uri: http://localhost:8087
