@@ -52,20 +52,7 @@ spring:
           uri: http://localhost:9092
           predicates:
             - Path=/accounts/{accountId}/transferences/**
-  security:
-    oauth2:
-      client:
-        provider:
-          gateway:
-            issuer-uri: http://localhost:8080/realms/digitalhouse
-        registration:
-          gateway:
-            client-id: gateway-client
-            client-secret: n1im7DSDElNahrEoiOMyZlncaSYDqyOF
-            provider: gateway
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8085/login/oauth2/code/gateway-client
-            scope: openid
+ 
 management:
   endpoints:
     web:
