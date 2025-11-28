@@ -33,23 +33,23 @@ spring:
         - TokenRelay
       routes:
         - id: user-service
-          uri: lb://user-service:8087
+          uri: lb://user-service
           predicates:
             - Path=/users/**
         - id: accounts-service
-          uri: lb://accounts-service:8084
+          uri: lb://accounts-service
           predicates:
             - Path=/accounts/**
         - id: api-cards
-          uri: lb://api-cards:8083
+          uri: lb://api-cards
           predicates:
             - Path=/accounts/{accountId}/cards/**
         - id: api-activity
-          uri: lb://api-activity:9091
+          uri: lb://api-activity
           predicates:
             - Path=/accounts/{accountId}/activity/**
         - id: api-transfers
-          uri: lb://api-transfers:9092
+          uri: lb://api-transfers
           predicates:
             - Path=/accounts/{accountId}/transferences/**
  
