@@ -5,9 +5,9 @@ spring:
     import: "optional:configserver:"
   cloud:
     config:
-      uri: http://config-service:8889/
+      uri: http://config-server:8889/
       discovery:
-        serviceId: config-service
+        serviceId: config-server
       enabled: true
     gateway:
       globalcors:
