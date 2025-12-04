@@ -3,13 +3,12 @@ spring:
     name: gateway
 
   config:
-    import: "optional:configserver:"
+    import: "optional:configserver:http://config-server:8889"
 
   cloud:
     config:
-      discovery:
-        serviceId: config-service
-      enabled: true
+      enabled: false   # NO usar discovery en Docker para config
+      # causa race condition
 
     gateway:
       globalcors:
@@ -100,6 +99,5 @@ logging:
         cloud:
           gateway: DEBUG
         security: DEBUG
-
 
 
