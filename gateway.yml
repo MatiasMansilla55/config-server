@@ -6,10 +6,6 @@ spring:
     import: "optional:configserver:http://config-server:8889"
 
   cloud:
-    config:
-      enabled: false   # NO usar discovery en Docker para config
-      # causa race condition
-
     gateway:
       globalcors:
         corsConfigurations:
@@ -31,8 +27,9 @@ spring:
             allowCredentials: true
             maxAge: 3600
 
-      default-filters:
-        - TokenRelay
+      # ⛔ Sacar TokenRelay si no hay OAuth2 configurado
+      # default-filters:
+      #   - TokenRelay
 
       routes:
         - id: user-service
@@ -60,15 +57,17 @@ spring:
           predicates:
             - Path=/accounts/{accountId}/transferences/**
 
+
 management:
   endpoints:
     web:
       exposure:
-        include: health, info
+        include: health,info
 
   info:
     env:
       enabled: true
+
 
 info:
   app:
@@ -76,28 +75,24 @@ info:
     description: API gateway
     version: 1.0.0
 
-eureka:
-  instance:
-    statusPageUrlPath: /actuator/info
-    healthCheckUrlPath: /actuator/info
 
+eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-server:8761/eureka/
 
+
 server:
   port: 8085
 
-main:
-  allow-bean-definition-overriding: true
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
 
 logging:
   level:
-    org:
-      springframework:
-        web: DEBUG
-        cloud:
-          gateway: DEBUG
-        security: DEBUG
-
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.security: DEBUG
 
